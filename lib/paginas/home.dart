@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
-
 import 'package:ccoapp/constantes/coloresapp.dart';
+import 'package:ccoapp/paginas/compras.dart';
 import 'package:ccoapp/paginas/inicio.dart';
 import 'package:ccoapp/paginas/search_product.dart';
 import 'package:ccoapp/paginas/usuario.dart';
@@ -17,18 +17,17 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _selectIndex = 0;
+int _selectIndex = 0;
 Widget pagecontend;
 Widget appbarCco;
+String token;
   Future<void> updateNotificacion() async {
     SharedPreferences preferencias = await SharedPreferences.getInstance();
-    String token = preferencias.getString("token") ?? "";
+    token = preferencias.getString("token") ?? "";
     final response = await http.get(InternetString.conteoShopNotifiquer, headers: {HttpHeaders.authorizationHeader: 'Token $token',});
     if (response.statusCode == 200) {
       print("Codigo de notificacion ${response.statusCode}");
       var responseJson = json.decode(utf8.decode(response.bodyBytes));  
-      print(responseJson['conteo_pre_compra']);
-
     setState(()  {    
     appbarCco = BotonApbbar(
       conteoCompra: responseJson['conteo_pre_compra'],
@@ -65,12 +64,20 @@ Widget appbarCco;
         setState(() {
           pagecontend = UsuarioViewPage();
         });
+        break;        
+      case 2:
+        setState(() {
+          pagecontend = ComprasView();
+        });
         break;
     }
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      
+      
       appBar: AppBar(
         centerTitle: true,
         title:Image(image: AssetImage('cco.png'), width: 120,),
@@ -89,6 +96,7 @@ Widget appbarCco;
           // BottomNavigationBarItem(icon:Icon(Icons.home), title: Text("Inicio")),
           BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Inicio'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Usuario'),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag), label: 'Compras'),
         ],
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black,

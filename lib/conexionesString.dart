@@ -18,4 +18,5 @@ class InternetString{
   static String updateDomicilio = "${dns}v1/domicilio/update/user/";
   static String updateDomicilioView = "${dns}v1/domicilio/update/";
   static String endCompra = "${dns}v1/finalizar/compra/";
+  static String misCompras = "${dns}v1/mis/compras/";
 }
