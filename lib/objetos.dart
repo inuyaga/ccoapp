@@ -183,7 +183,7 @@ class Compra {
   final String cwCliente;
   final String cwStatus;
   final String cwDomicilio;
-  final String cwNumeroVenta;
+  final int cwNumeroVenta;
   final String cwNumeroFactura;
   final String cwTipoPago;
   final double total;

@@ -83,21 +83,22 @@ class CardGridWidget extends StatelessWidget {
                     )),
                 Text(
                   "${producto.productonombre}",
-                  style: TextStyle(fontSize: 10),
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 11, fontFamily: 'KG'),
                 ),
                 Text(
                   "${producto.productomarca}",
-                  style: TextStyle(fontSize: 10),
+                  style: TextStyle(fontSize: 10, color: Colors.green, fontFamily: 'KG', fontWeight: FontWeight.bold),
                 ),
                 Text(
                   "${producto.productolinea}",
-                  style: TextStyle(fontSize: 10),
+                  style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, fontFamily: 'KG', color: Colors.amber),
                 ),
                 Text(
                   producto.productoprecio == 0
                       ? r"$" + "Registrarse"
                       : r"$" + oCcy.format(producto.productoprecio),
-                  style: TextStyle(fontSize: 10, color: ColoresApp.primario),
+                  style: TextStyle(fontSize: 15, color: ColoresApp.primario, fontFamily: 'KG'),
                 ),
               ],
             ),

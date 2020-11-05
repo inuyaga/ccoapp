@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:ccoapp/conexionesString.dart';
 import 'package:ccoapp/constantes/coloresapp.dart';
 import 'package:ccoapp/objetos.dart';
-import 'package:ccoapp/widgets/shop_car_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';

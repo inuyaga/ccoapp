@@ -72,6 +72,7 @@ Future<List<Compra>> getMisCompras() async {
   final response = await http.get(InternetString.misCompras, headers: {
     HttpHeaders.authorizationHeader: 'Token $token',
   });  
+  
   if (response.statusCode == 200) {
     var responseJson = json.decode(utf8.decode(response.bodyBytes));
     for (var item in responseJson) {
