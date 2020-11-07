@@ -45,21 +45,67 @@ class DetalleCompraWebView extends StatelessWidget {
                   ],
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     SizedBox(height: 5,),
-                    Text(
-                      "Total",
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                      "SUBTOTAL",
                       style: TextStyle(
-                          fontSize: 35,
+                          fontSize: 20,
                           fontFamily: 'KG',
                           color: ColoresApp.primario,
                           fontWeight: FontWeight.bold),
                     ),
-                    Divider(),
+                    
                     Text(
                       "${oCcy.format(totalPedido)}",
                       style: TextStyle(
-                          fontSize: 29,
+                          fontSize: 20,
+                          fontFamily: 'KG',
+                          color: ColoresApp.defecto),
+                    ),
+                      ],
+                    ),
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                      "ENVIO",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'KG',
+                          color: ColoresApp.primario,
+                          fontWeight: FontWeight.bold
+                          ),
+                    ),
+                    Text(
+                      "160.0",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'KG',
+                          color: ColoresApp.defecto),
+                    ),
+                      ],
+                    ),
+                    
+                    
+                    Text(
+                      "TOTAL",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontFamily: 'KG',
+                          color: ColoresApp.primario),
+                    ),                    
+                    Divider(),
+                    Text(
+                      "${oCcy.format(totalPedido+160.0)}",
+                      style: TextStyle(
+                          fontSize: 25,
                           fontFamily: 'KG',
                           color: ColoresApp.defecto),
                     ),

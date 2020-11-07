@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
 import 'package:ccoapp/constantes/coloresapp.dart';
+import 'package:ccoapp/widgets/aboutDialog.dart';
 import 'package:http/http.dart' as http;
 import 'package:ccoapp/conexionesString.dart';
 import 'package:ccoapp/objetos.dart';
@@ -17,6 +18,9 @@ class ComprasView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        showPageLicencia(context);
+      },child: Icon(Icons.speaker_notes),),
       body: FutureBuilder(
           future: getMisCompras(),
           builder: (BuildContext context, AsyncSnapshot snap) {
@@ -51,7 +55,7 @@ class ComprasView extends StatelessWidget {
                       child: Text("N° ${compras[index].cwId}", style: TextStyle(color: ColoresApp.primario, fontSize: 10),),
                     )),
                 subtitle: Text("${compras[index].cwFecha}", style: TextStyle(fontFamily: 'KG'),),
-                trailing: Text("${oCcy.format(compras[index].total)}", style: TextStyle(color: ColoresApp.defecto, fontFamily: 'KG'),),
+                trailing: Text("${oCcy.format(compras[index].total+160.0)}", style: TextStyle(color: ColoresApp.defecto, fontFamily: 'KG'),),
                 onTap: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DetalleCompraWebView(
                     itemsCarr: compras[index].itemsCompras,

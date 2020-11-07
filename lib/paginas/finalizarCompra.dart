@@ -150,11 +150,15 @@ class _FinalizarCompraViewState extends State<FinalizarCompraView> {
                                 titulo: 'Pedido Finalizado',
                                 cuerpo: ListBody(
                                   children: [
-                                    Text(
-                                        "Pedido N° ${responseJson['idCompraWeb']}"),
-                                    Text("Cuenta deposito 123 849 457"),
-                                    Text(
-                                        "Enviar captura al Email compracompucopias@ejemplo.com"),
+                                    Text("Pedido N° ${responseJson['idCompraWeb']}"),
+                                    Text("COMPUCOPIAS"),
+                                    Text("BBVA"),
+                                    Text("BANCOMER"),
+                                    Text("CUENTA"),
+                                    Text("0134715950"),
+                                    Text("CLABE"),
+                                    Text("012790001347159500"),
+                                    Text("Enviar captura al Email computel@live.com.mx"),
                                   ],
                                 ));
                           }
